@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Text Recognition</string>
+    <string name="s_hello_my_app">Hello :)</string>
+    <string name="s_copy">Copy</string>
+    <string name="s_show_image">Image</string>
+    <string name="s_camera">Camera</string>
+    <string name="s_gallery">Gallery</string>
+    <string name="s_detect">Detect</string>
+    <string name="s_clear">Clear</string>
+    <string name="s_share">Share</string>
+
+</resources>
