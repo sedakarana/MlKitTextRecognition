@@ -25,7 +25,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -135,8 +137,10 @@ fun HomeScreen(
                     .border(1.dp, ColorBorder, shape = RoundedCornerShape(5.dp)),
                 contentAlignment = Alignment.Center
             ) {
+                val scrollState = rememberScrollState()
                 Text(
-                    modifier = Modifier.wrapContentSize(),
+                    modifier = Modifier.wrapContentSize()
+                        .verticalScroll(scrollState),
                     text = textResult,
                     fontSize = 17.sp,
                     fontWeight = FontWeight.Normal,
@@ -159,10 +163,10 @@ fun HomeScreen(
                                 context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
 
                             val clip =
-                                android.content.ClipData.newPlainText("Copied Text", "textToCopy")
+                                android.content.ClipData.newPlainText(context.getString(R.string.s_copied), "textToCopy")
                             clipboardManager.setPrimaryClip(clip)
                             Toast
-                                .makeText(context, "Text Copied to Clipboard!", Toast.LENGTH_SHORT)
+                                .makeText(context, context.getString(R.string.s_copied_result), Toast.LENGTH_SHORT)
                                 .show()
                         }
 

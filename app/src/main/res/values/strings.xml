@@ -8,5 +8,8 @@
     <string name="s_detect">Detect</string>
     <string name="s_clear">Clear</string>
     <string name="s_share">Share</string>
-
+    <string name="s_dont_read">Text could not be read</string>
+    <string name="s_detect_image">No Text Detected In Image</string>
+    <string name="s_copied">Copied Text</string>
+    <string name="s_copied_result">Text Copied to Clipboard!</string>
 </resources>

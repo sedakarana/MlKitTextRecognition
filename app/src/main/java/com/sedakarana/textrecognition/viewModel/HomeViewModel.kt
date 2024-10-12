@@ -8,10 +8,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.res.stringResource
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.Text
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
+import com.sedakarana.textrecognition.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -33,7 +35,7 @@ class HomeViewModel @Inject constructor(
                     progressText(context,it)
                 }
                 .addOnFailureListener {
-                    Toast.makeText(context, "Text could not be read", Toast.LENGTH_LONG)
+                    Toast.makeText(context, context.getString(R.string.s_dont_read), Toast.LENGTH_LONG)
                 }
         }
     }
@@ -42,7 +44,7 @@ class HomeViewModel @Inject constructor(
         val blocks = it?.textBlocks
         if (blocks != null) {
             if (blocks.size == 0) { //GÖRSELDE TEXT YOK
-                Toast.makeText(context, "No Text Detected In Image", Toast.LENGTH_LONG)
+                Toast.makeText(context, context.getString(R.string.s_detect_image), Toast.LENGTH_LONG)
             }
         }
         val text = StringBuilder()
